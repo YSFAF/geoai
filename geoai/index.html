@@ -1034,6 +1034,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../examples/water_dynamics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Water dynamics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../examples/wetland_mapping/" class="md-nav__link">
         
   
@@ -1858,15 +1881,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#geoai.geoai.batch_raster_to_vector" class="md-nav__link">
-    <span class="md-ellipsis">
-      batch_raster_to_vector
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#geoai.geoai.batch_vector_to_raster" class="md-nav__link">
     <span class="md-ellipsis">
       batch_vector_to_raster
@@ -2176,6 +2190,15 @@
   <a href="#geoai.geoai.raster_to_vector" class="md-nav__link">
     <span class="md-ellipsis">
       raster_to_vector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geoai.geoai.raster_to_vector_batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      raster_to_vector_batch
     </span>
   </a>
   
@@ -2977,15 +3000,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#geoai.geoai.batch_raster_to_vector" class="md-nav__link">
-    <span class="md-ellipsis">
-      batch_raster_to_vector
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#geoai.geoai.batch_vector_to_raster" class="md-nav__link">
     <span class="md-ellipsis">
       batch_vector_to_raster
@@ -3295,6 +3309,15 @@
   <a href="#geoai.geoai.raster_to_vector" class="md-nav__link">
     <span class="md-ellipsis">
       raster_to_vector
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#geoai.geoai.raster_to_vector_batch" class="md-nav__link">
+    <span class="md-ellipsis">
+      raster_to_vector_batch
     </span>
   </a>
   
@@ -22444,466 +22467,6 @@ Defaults to 'm'.</p>
 <div class="doc doc-object doc-function">
 
 
-<h2 id="geoai.geoai.batch_raster_to_vector" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">batch_raster_to_vector</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s1">&#39;*.tif&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_area</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">simplify_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribute_name</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;geojson&#39;</span><span class="p">,</span> <span class="n">merge_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">merge_filename</span><span class="o">=</span><span class="s1">&#39;merged_vectors&#39;</span><span class="p">)</span></code>
-
-<a href="#geoai.geoai.batch_raster_to_vector" class="headerlink" title="Permanent link">&para;</a></h2>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Batch convert multiple raster files to vector polygons.</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>input_dir</code>
-            </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Directory containing input raster files.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>output_dir</code>
-            </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Directory to save output vector files.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>pattern</code>
-            </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Pattern to match raster files (e.g., '*.tif').</p>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;*.tif&#39;</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>threshold</code>
-            </td>
-            <td>
-                  <code><span title="int">int</span> / <span title="float">float</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Pixel values greater than this threshold will be vectorized.</p>
-              </div>
-            </td>
-            <td>
-                  <code>0</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>min_area</code>
-            </td>
-            <td>
-                  <code><span title="float">float</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Minimum polygon area in square map units to keep.</p>
-              </div>
-            </td>
-            <td>
-                  <code>10</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>simplify_tolerance</code>
-            </td>
-            <td>
-                  <code><span title="float">float</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Tolerance for geometry simplification. None for no simplification.</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>class_values</code>
-            </td>
-            <td>
-                  <code><span title="list">list</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Specific pixel values to vectorize. If None, all values &gt; threshold are vectorized.</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>attribute_name</code>
-            </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Name of the attribute field for the class values.</p>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;class&#39;</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>output_format</code>
-            </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Format for output files - 'geojson', 'shapefile', 'gpkg'.</p>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;geojson&#39;</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>merge_output</code>
-            </td>
-            <td>
-                  <code><span title="bool">bool</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Whether to merge all output vectors into a single file.</p>
-              </div>
-            </td>
-            <td>
-                  <code>False</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>merge_filename</code>
-            </td>
-            <td>
-                  <code><span title="str">str</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Filename for the merged output (without extension).</p>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;merged_vectors&#39;</code>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>geopandas.GeoDataFrame or None: If merge_output is True, returns the merged GeoDataFrame.</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-            <details class="quote">
-              <summary>Source code in <code>geoai/utils.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">2115</span>
-<span class="normal">2116</span>
-<span class="normal">2117</span>
-<span class="normal">2118</span>
-<span class="normal">2119</span>
-<span class="normal">2120</span>
-<span class="normal">2121</span>
-<span class="normal">2122</span>
-<span class="normal">2123</span>
-<span class="normal">2124</span>
-<span class="normal">2125</span>
-<span class="normal">2126</span>
-<span class="normal">2127</span>
-<span class="normal">2128</span>
-<span class="normal">2129</span>
-<span class="normal">2130</span>
-<span class="normal">2131</span>
-<span class="normal">2132</span>
-<span class="normal">2133</span>
-<span class="normal">2134</span>
-<span class="normal">2135</span>
-<span class="normal">2136</span>
-<span class="normal">2137</span>
-<span class="normal">2138</span>
-<span class="normal">2139</span>
-<span class="normal">2140</span>
-<span class="normal">2141</span>
-<span class="normal">2142</span>
-<span class="normal">2143</span>
-<span class="normal">2144</span>
-<span class="normal">2145</span>
-<span class="normal">2146</span>
-<span class="normal">2147</span>
-<span class="normal">2148</span>
-<span class="normal">2149</span>
-<span class="normal">2150</span>
-<span class="normal">2151</span>
-<span class="normal">2152</span>
-<span class="normal">2153</span>
-<span class="normal">2154</span>
-<span class="normal">2155</span>
-<span class="normal">2156</span>
-<span class="normal">2157</span>
-<span class="normal">2158</span>
-<span class="normal">2159</span>
-<span class="normal">2160</span>
-<span class="normal">2161</span>
-<span class="normal">2162</span>
-<span class="normal">2163</span>
-<span class="normal">2164</span>
-<span class="normal">2165</span>
-<span class="normal">2166</span>
-<span class="normal">2167</span>
-<span class="normal">2168</span>
-<span class="normal">2169</span>
-<span class="normal">2170</span>
-<span class="normal">2171</span>
-<span class="normal">2172</span>
-<span class="normal">2173</span>
-<span class="normal">2174</span>
-<span class="normal">2175</span>
-<span class="normal">2176</span>
-<span class="normal">2177</span>
-<span class="normal">2178</span>
-<span class="normal">2179</span>
-<span class="normal">2180</span>
-<span class="normal">2181</span>
-<span class="normal">2182</span>
-<span class="normal">2183</span>
-<span class="normal">2184</span>
-<span class="normal">2185</span>
-<span class="normal">2186</span>
-<span class="normal">2187</span>
-<span class="normal">2188</span>
-<span class="normal">2189</span>
-<span class="normal">2190</span>
-<span class="normal">2191</span>
-<span class="normal">2192</span>
-<span class="normal">2193</span>
-<span class="normal">2194</span>
-<span class="normal">2195</span>
-<span class="normal">2196</span>
-<span class="normal">2197</span>
-<span class="normal">2198</span>
-<span class="normal">2199</span>
-<span class="normal">2200</span>
-<span class="normal">2201</span>
-<span class="normal">2202</span>
-<span class="normal">2203</span>
-<span class="normal">2204</span>
-<span class="normal">2205</span>
-<span class="normal">2206</span>
-<span class="normal">2207</span>
-<span class="normal">2208</span>
-<span class="normal">2209</span>
-<span class="normal">2210</span>
-<span class="normal">2211</span>
-<span class="normal">2212</span>
-<span class="normal">2213</span>
-<span class="normal">2214</span>
-<span class="normal">2215</span>
-<span class="normal">2216</span>
-<span class="normal">2217</span>
-<span class="normal">2218</span>
-<span class="normal">2219</span>
-<span class="normal">2220</span>
-<span class="normal">2221</span>
-<span class="normal">2222</span>
-<span class="normal">2223</span>
-<span class="normal">2224</span>
-<span class="normal">2225</span>
-<span class="normal">2226</span>
-<span class="normal">2227</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">batch_raster_to_vector</span><span class="p">(</span>
-    <span class="n">input_dir</span><span class="p">,</span>
-    <span class="n">output_dir</span><span class="p">,</span>
-    <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;*.tif&quot;</span><span class="p">,</span>
-    <span class="n">threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-    <span class="n">min_area</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-    <span class="n">simplify_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">class_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">attribute_name</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span>
-    <span class="n">output_format</span><span class="o">=</span><span class="s2">&quot;geojson&quot;</span><span class="p">,</span>
-    <span class="n">merge_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">merge_filename</span><span class="o">=</span><span class="s2">&quot;merged_vectors&quot;</span><span class="p">,</span>
-<span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Batch convert multiple raster files to vector polygons.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        input_dir (str): Directory containing input raster files.</span>
-<span class="sd">        output_dir (str): Directory to save output vector files.</span>
-<span class="sd">        pattern (str): Pattern to match raster files (e.g., &#39;*.tif&#39;).</span>
-<span class="sd">        threshold (int/float): Pixel values greater than this threshold will be vectorized.</span>
-<span class="sd">        min_area (float): Minimum polygon area in square map units to keep.</span>
-<span class="sd">        simplify_tolerance (float): Tolerance for geometry simplification. None for no simplification.</span>
-<span class="sd">        class_values (list): Specific pixel values to vectorize. If None, all values &gt; threshold are vectorized.</span>
-<span class="sd">        attribute_name (str): Name of the attribute field for the class values.</span>
-<span class="sd">        output_format (str): Format for output files - &#39;geojson&#39;, &#39;shapefile&#39;, &#39;gpkg&#39;.</span>
-<span class="sd">        merge_output (bool): Whether to merge all output vectors into a single file.</span>
-<span class="sd">        merge_filename (str): Filename for the merged output (without extension).</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        geopandas.GeoDataFrame or None: If merge_output is True, returns the merged GeoDataFrame.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
-
-    <span class="c1"># Create output directory if it doesn&#39;t exist</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-    <span class="c1"># Get list of raster files</span>
-    <span class="n">raster_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">pattern</span><span class="p">))</span>
-
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">raster_files</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No files matching pattern &#39;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">&#39; found in </span><span class="si">{</span><span class="n">input_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="kc">None</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">raster_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> raster files to process&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Process each raster file</span>
-    <span class="n">gdfs</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">raster_file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">raster_files</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Processing rasters&quot;</span><span class="p">):</span>
-        <span class="c1"># Get output filename</span>
-        <span class="n">base_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">raster_file</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;geojson&quot;</span><span class="p">:</span>
-            <span class="n">out_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s2">.geojson&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;shapefile&quot;</span><span class="p">:</span>
-            <span class="n">out_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s2">.shp&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;gpkg&quot;</span><span class="p">:</span>
-            <span class="n">out_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s2">.gpkg&quot;</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported output format: </span><span class="si">{</span><span class="n">output_format</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-        <span class="c1"># Convert raster to vector</span>
-        <span class="k">if</span> <span class="n">merge_output</span><span class="p">:</span>
-            <span class="c1"># Don&#39;t save individual files if merging</span>
-            <span class="n">gdf</span> <span class="o">=</span> <span class="n">raster_to_vector</span><span class="p">(</span>
-                <span class="n">raster_file</span><span class="p">,</span>
-                <span class="n">output_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-                <span class="n">min_area</span><span class="o">=</span><span class="n">min_area</span><span class="p">,</span>
-                <span class="n">simplify_tolerance</span><span class="o">=</span><span class="n">simplify_tolerance</span><span class="p">,</span>
-                <span class="n">class_values</span><span class="o">=</span><span class="n">class_values</span><span class="p">,</span>
-                <span class="n">attribute_name</span><span class="o">=</span><span class="n">attribute_name</span><span class="p">,</span>
-            <span class="p">)</span>
-
-            <span class="c1"># Add filename as attribute</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">gdf</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
-                <span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;source_file&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_name</span>
-                <span class="n">gdfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># Save individual files</span>
-            <span class="n">raster_to_vector</span><span class="p">(</span>
-                <span class="n">raster_file</span><span class="p">,</span>
-                <span class="n">output_path</span><span class="o">=</span><span class="n">out_file</span><span class="p">,</span>
-                <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
-                <span class="n">min_area</span><span class="o">=</span><span class="n">min_area</span><span class="p">,</span>
-                <span class="n">simplify_tolerance</span><span class="o">=</span><span class="n">simplify_tolerance</span><span class="p">,</span>
-                <span class="n">class_values</span><span class="o">=</span><span class="n">class_values</span><span class="p">,</span>
-                <span class="n">attribute_name</span><span class="o">=</span><span class="n">attribute_name</span><span class="p">,</span>
-                <span class="n">output_format</span><span class="o">=</span><span class="n">output_format</span><span class="p">,</span>
-            <span class="p">)</span>
-
-    <span class="c1"># Merge output if requested</span>
-    <span class="k">if</span> <span class="n">merge_output</span> <span class="ow">and</span> <span class="n">gdfs</span><span class="p">:</span>
-        <span class="n">merged_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">gdfs</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-
-        <span class="c1"># Set CRS to the CRS of the first GeoDataFrame</span>
-        <span class="k">if</span> <span class="n">merged_gdf</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">gdfs</span><span class="p">:</span>
-            <span class="n">merged_gdf</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">gdfs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">crs</span>
-
-        <span class="c1"># Save merged output</span>
-        <span class="k">if</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;geojson&quot;</span><span class="p">:</span>
-            <span class="n">merged_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">merge_filename</span><span class="si">}</span><span class="s2">.geojson&quot;</span><span class="p">)</span>
-            <span class="n">merged_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">merged_file</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GeoJSON&quot;</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;shapefile&quot;</span><span class="p">:</span>
-            <span class="n">merged_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">merge_filename</span><span class="si">}</span><span class="s2">.shp&quot;</span><span class="p">)</span>
-            <span class="n">merged_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">merged_file</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;gpkg&quot;</span><span class="p">:</span>
-            <span class="n">merged_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">merge_filename</span><span class="si">}</span><span class="s2">.gpkg&quot;</span><span class="p">)</span>
-            <span class="n">merged_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">merged_file</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GPKG&quot;</span><span class="p">)</span>
-
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Merged vector data saved to </span><span class="si">{</span><span class="n">merged_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">merged_gdf</span>
-
-    <span class="k">return</span> <span class="kc">None</span>
-</code></pre></div></td></tr></table></div>
-            </details>
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
 <h2 id="geoai.geoai.batch_vector_to_raster" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">batch_vector_to_raster</span><span class="p">(</span><span class="n">vector_path</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">attribute_field</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reference_rasters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bounds_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">output_filename_pattern</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">{vector_name}</span><span class="s1">_</span><span class="si">{index}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">pixel_size</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">all_touched</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
 
@@ -37887,6 +37450,466 @@ Defaults to True.</p>
             <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
         <span class="k">return</span> <span class="n">gdf</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="geoai.geoai.raster_to_vector_batch" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">raster_to_vector_batch</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">pattern</span><span class="o">=</span><span class="s1">&#39;*.tif&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_area</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">simplify_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attribute_name</span><span class="o">=</span><span class="s1">&#39;class&#39;</span><span class="p">,</span> <span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;geojson&#39;</span><span class="p">,</span> <span class="n">merge_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">merge_filename</span><span class="o">=</span><span class="s1">&#39;merged_vectors&#39;</span><span class="p">)</span></code>
+
+<a href="#geoai.geoai.raster_to_vector_batch" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Batch convert multiple raster files to vector polygons.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>input_dir</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Directory containing input raster files.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output_dir</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Directory to save output vector files.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>pattern</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Pattern to match raster files (e.g., '*.tif').</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;*.tif&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>threshold</code>
+            </td>
+            <td>
+                  <code><span title="int">int</span> / <span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Pixel values greater than this threshold will be vectorized.</p>
+              </div>
+            </td>
+            <td>
+                  <code>0</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>min_area</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Minimum polygon area in square map units to keep.</p>
+              </div>
+            </td>
+            <td>
+                  <code>10</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>simplify_tolerance</code>
+            </td>
+            <td>
+                  <code><span title="float">float</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Tolerance for geometry simplification. None for no simplification.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>class_values</code>
+            </td>
+            <td>
+                  <code><span title="list">list</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specific pixel values to vectorize. If None, all values &gt; threshold are vectorized.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>attribute_name</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Name of the attribute field for the class values.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;class&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>output_format</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Format for output files - 'geojson', 'shapefile', 'gpkg'.</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;geojson&#39;</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>merge_output</code>
+            </td>
+            <td>
+                  <code><span title="bool">bool</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Whether to merge all output vectors into a single file.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>merge_filename</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Filename for the merged output (without extension).</p>
+              </div>
+            </td>
+            <td>
+                  <code>&#39;merged_vectors&#39;</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>geopandas.GeoDataFrame or None: If merge_output is True, returns the merged GeoDataFrame.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="quote">
+              <summary>Source code in <code>geoai/utils.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">2115</span>
+<span class="normal">2116</span>
+<span class="normal">2117</span>
+<span class="normal">2118</span>
+<span class="normal">2119</span>
+<span class="normal">2120</span>
+<span class="normal">2121</span>
+<span class="normal">2122</span>
+<span class="normal">2123</span>
+<span class="normal">2124</span>
+<span class="normal">2125</span>
+<span class="normal">2126</span>
+<span class="normal">2127</span>
+<span class="normal">2128</span>
+<span class="normal">2129</span>
+<span class="normal">2130</span>
+<span class="normal">2131</span>
+<span class="normal">2132</span>
+<span class="normal">2133</span>
+<span class="normal">2134</span>
+<span class="normal">2135</span>
+<span class="normal">2136</span>
+<span class="normal">2137</span>
+<span class="normal">2138</span>
+<span class="normal">2139</span>
+<span class="normal">2140</span>
+<span class="normal">2141</span>
+<span class="normal">2142</span>
+<span class="normal">2143</span>
+<span class="normal">2144</span>
+<span class="normal">2145</span>
+<span class="normal">2146</span>
+<span class="normal">2147</span>
+<span class="normal">2148</span>
+<span class="normal">2149</span>
+<span class="normal">2150</span>
+<span class="normal">2151</span>
+<span class="normal">2152</span>
+<span class="normal">2153</span>
+<span class="normal">2154</span>
+<span class="normal">2155</span>
+<span class="normal">2156</span>
+<span class="normal">2157</span>
+<span class="normal">2158</span>
+<span class="normal">2159</span>
+<span class="normal">2160</span>
+<span class="normal">2161</span>
+<span class="normal">2162</span>
+<span class="normal">2163</span>
+<span class="normal">2164</span>
+<span class="normal">2165</span>
+<span class="normal">2166</span>
+<span class="normal">2167</span>
+<span class="normal">2168</span>
+<span class="normal">2169</span>
+<span class="normal">2170</span>
+<span class="normal">2171</span>
+<span class="normal">2172</span>
+<span class="normal">2173</span>
+<span class="normal">2174</span>
+<span class="normal">2175</span>
+<span class="normal">2176</span>
+<span class="normal">2177</span>
+<span class="normal">2178</span>
+<span class="normal">2179</span>
+<span class="normal">2180</span>
+<span class="normal">2181</span>
+<span class="normal">2182</span>
+<span class="normal">2183</span>
+<span class="normal">2184</span>
+<span class="normal">2185</span>
+<span class="normal">2186</span>
+<span class="normal">2187</span>
+<span class="normal">2188</span>
+<span class="normal">2189</span>
+<span class="normal">2190</span>
+<span class="normal">2191</span>
+<span class="normal">2192</span>
+<span class="normal">2193</span>
+<span class="normal">2194</span>
+<span class="normal">2195</span>
+<span class="normal">2196</span>
+<span class="normal">2197</span>
+<span class="normal">2198</span>
+<span class="normal">2199</span>
+<span class="normal">2200</span>
+<span class="normal">2201</span>
+<span class="normal">2202</span>
+<span class="normal">2203</span>
+<span class="normal">2204</span>
+<span class="normal">2205</span>
+<span class="normal">2206</span>
+<span class="normal">2207</span>
+<span class="normal">2208</span>
+<span class="normal">2209</span>
+<span class="normal">2210</span>
+<span class="normal">2211</span>
+<span class="normal">2212</span>
+<span class="normal">2213</span>
+<span class="normal">2214</span>
+<span class="normal">2215</span>
+<span class="normal">2216</span>
+<span class="normal">2217</span>
+<span class="normal">2218</span>
+<span class="normal">2219</span>
+<span class="normal">2220</span>
+<span class="normal">2221</span>
+<span class="normal">2222</span>
+<span class="normal">2223</span>
+<span class="normal">2224</span>
+<span class="normal">2225</span>
+<span class="normal">2226</span>
+<span class="normal">2227</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">raster_to_vector_batch</span><span class="p">(</span>
+    <span class="n">input_dir</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="p">,</span>
+    <span class="n">pattern</span><span class="o">=</span><span class="s2">&quot;*.tif&quot;</span><span class="p">,</span>
+    <span class="n">threshold</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">min_area</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">simplify_tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">class_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">attribute_name</span><span class="o">=</span><span class="s2">&quot;class&quot;</span><span class="p">,</span>
+    <span class="n">output_format</span><span class="o">=</span><span class="s2">&quot;geojson&quot;</span><span class="p">,</span>
+    <span class="n">merge_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">merge_filename</span><span class="o">=</span><span class="s2">&quot;merged_vectors&quot;</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Batch convert multiple raster files to vector polygons.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_dir (str): Directory containing input raster files.</span>
+<span class="sd">        output_dir (str): Directory to save output vector files.</span>
+<span class="sd">        pattern (str): Pattern to match raster files (e.g., &#39;*.tif&#39;).</span>
+<span class="sd">        threshold (int/float): Pixel values greater than this threshold will be vectorized.</span>
+<span class="sd">        min_area (float): Minimum polygon area in square map units to keep.</span>
+<span class="sd">        simplify_tolerance (float): Tolerance for geometry simplification. None for no simplification.</span>
+<span class="sd">        class_values (list): Specific pixel values to vectorize. If None, all values &gt; threshold are vectorized.</span>
+<span class="sd">        attribute_name (str): Name of the attribute field for the class values.</span>
+<span class="sd">        output_format (str): Format for output files - &#39;geojson&#39;, &#39;shapefile&#39;, &#39;gpkg&#39;.</span>
+<span class="sd">        merge_output (bool): Whether to merge all output vectors into a single file.</span>
+<span class="sd">        merge_filename (str): Filename for the merged output (without extension).</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        geopandas.GeoDataFrame or None: If merge_output is True, returns the merged GeoDataFrame.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">glob</span>
+
+    <span class="c1"># Create output directory if it doesn&#39;t exist</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Get list of raster files</span>
+    <span class="n">raster_files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">pattern</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">raster_files</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No files matching pattern &#39;</span><span class="si">{</span><span class="n">pattern</span><span class="si">}</span><span class="s2">&#39; found in </span><span class="si">{</span><span class="n">input_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">raster_files</span><span class="p">)</span><span class="si">}</span><span class="s2"> raster files to process&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Process each raster file</span>
+    <span class="n">gdfs</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">raster_file</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">raster_files</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Processing rasters&quot;</span><span class="p">):</span>
+        <span class="c1"># Get output filename</span>
+        <span class="n">base_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">raster_file</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;geojson&quot;</span><span class="p">:</span>
+            <span class="n">out_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s2">.geojson&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;shapefile&quot;</span><span class="p">:</span>
+            <span class="n">out_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s2">.shp&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;gpkg&quot;</span><span class="p">:</span>
+            <span class="n">out_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s2">.gpkg&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported output format: </span><span class="si">{</span><span class="n">output_format</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Convert raster to vector</span>
+        <span class="k">if</span> <span class="n">merge_output</span><span class="p">:</span>
+            <span class="c1"># Don&#39;t save individual files if merging</span>
+            <span class="n">gdf</span> <span class="o">=</span> <span class="n">raster_to_vector</span><span class="p">(</span>
+                <span class="n">raster_file</span><span class="p">,</span>
+                <span class="n">output_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
+                <span class="n">min_area</span><span class="o">=</span><span class="n">min_area</span><span class="p">,</span>
+                <span class="n">simplify_tolerance</span><span class="o">=</span><span class="n">simplify_tolerance</span><span class="p">,</span>
+                <span class="n">class_values</span><span class="o">=</span><span class="n">class_values</span><span class="p">,</span>
+                <span class="n">attribute_name</span><span class="o">=</span><span class="n">attribute_name</span><span class="p">,</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Add filename as attribute</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">gdf</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+                <span class="n">gdf</span><span class="p">[</span><span class="s2">&quot;source_file&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_name</span>
+                <span class="n">gdfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gdf</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Save individual files</span>
+            <span class="n">raster_to_vector</span><span class="p">(</span>
+                <span class="n">raster_file</span><span class="p">,</span>
+                <span class="n">output_path</span><span class="o">=</span><span class="n">out_file</span><span class="p">,</span>
+                <span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">,</span>
+                <span class="n">min_area</span><span class="o">=</span><span class="n">min_area</span><span class="p">,</span>
+                <span class="n">simplify_tolerance</span><span class="o">=</span><span class="n">simplify_tolerance</span><span class="p">,</span>
+                <span class="n">class_values</span><span class="o">=</span><span class="n">class_values</span><span class="p">,</span>
+                <span class="n">attribute_name</span><span class="o">=</span><span class="n">attribute_name</span><span class="p">,</span>
+                <span class="n">output_format</span><span class="o">=</span><span class="n">output_format</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Merge output if requested</span>
+    <span class="k">if</span> <span class="n">merge_output</span> <span class="ow">and</span> <span class="n">gdfs</span><span class="p">:</span>
+        <span class="n">merged_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">gdfs</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+        <span class="c1"># Set CRS to the CRS of the first GeoDataFrame</span>
+        <span class="k">if</span> <span class="n">merged_gdf</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">gdfs</span><span class="p">:</span>
+            <span class="n">merged_gdf</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">gdfs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">crs</span>
+
+        <span class="c1"># Save merged output</span>
+        <span class="k">if</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;geojson&quot;</span><span class="p">:</span>
+            <span class="n">merged_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">merge_filename</span><span class="si">}</span><span class="s2">.geojson&quot;</span><span class="p">)</span>
+            <span class="n">merged_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">merged_file</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GeoJSON&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;shapefile&quot;</span><span class="p">:</span>
+            <span class="n">merged_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">merge_filename</span><span class="si">}</span><span class="s2">.shp&quot;</span><span class="p">)</span>
+            <span class="n">merged_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">merged_file</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">output_format</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;gpkg&quot;</span><span class="p">:</span>
+            <span class="n">merged_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">merge_filename</span><span class="si">}</span><span class="s2">.gpkg&quot;</span><span class="p">)</span>
+            <span class="n">merged_gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">merged_file</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s2">&quot;GPKG&quot;</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Merged vector data saved to </span><span class="si">{</span><span class="n">merged_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">merged_gdf</span>
+
+    <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
